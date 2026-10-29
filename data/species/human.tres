@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Species" format=3 uid="uid://dxbnlgqslt5of"]
+
+[ext_resource type="Script" uid="uid://bdwprprdwkaky" path="res://core/character/species.gd" id="1_e4bju"]
+
+[resource]
+script = ExtResource("1_e4bju")
+passive_text = "Adaptable: add 1 to an ability score of your choice."
+ability_bonus = 1
+id = &"human"
+display_name = "Human"
+description = "Kallistopolis was built by humans, and rebuilt by humans, and is currently being argued over by humans. They are everywhere, and adaptable to a fault."

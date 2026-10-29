@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://bl8ntohptcvog"]
+
+[ext_resource type="Script" uid="uid://brbfqfloywsd1" path="res://ui/creation/creation_screen.gd" id="1_bb6b0"]
+[ext_resource type="Script" uid="uid://kmq2hgxsaep4" path="res://ui/creation/score_table.gd" id="1_u6qfb"]
+
+[node name="CreationScreen" type="VBoxContainer" unique_id=2111740167]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_bb6b0")
+
+[node name="TitleLabel" type="Label" parent="." unique_id=142519318]
+layout_mode = 2
+text = "Create your delver"
+
+[node name="Choices" type="GridContainer" parent="." unique_id=984590667]
+layout_mode = 2
+columns = 2
+
+[node name="SpeciesLabel" type="Label" parent="Choices" unique_id=702894649]
+layout_mode = 2
+text = "Species"
+
+[node name="SpeciesOption" type="OptionButton" parent="Choices" unique_id=2071299091]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ClassLabel" type="Label" parent="Choices" unique_id=436279847]
+layout_mode = 2
+text = "Class"
+
+[node name="ClassOption" type="OptionButton" parent="Choices" unique_id=1959831035]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SignLabel" type="Label" parent="Choices" unique_id=1765272128]
+layout_mode = 2
+text = "Born under"
+
+[node name="SignOption" type="OptionButton" parent="Choices" unique_id=1285537444]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DetailsLabel" type="Label" parent="." unique_id=1160004132]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="ScoreTable" type="GridContainer" parent="." unique_id=1754539629]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("1_u6qfb")
+
+[node name="SummaryLabel" type="Label" parent="." unique_id=2146378847]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BeginButton" type="Button" parent="." unique_id=1245992964]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Begin delve"

@@ -1,6 +1,6 @@
 # Five Room Dungeon Roguelite: Game Design Overview
 
-Version 0.3, October 2026.
+Version 0.4, October 2026.
 
 This is the overview document. Each implementation slice listed under
 [Build plan](#build-plan) gets its own document when work on it starts;
@@ -153,16 +153,19 @@ one unlocked per level, so a level 5 character has a complete kit.
 
 Signs replace D&D-style backgrounds. Every character is born under one
 of the five Discordian seasons, which grants a boon and a curse. Signs
-affect only the character born under them. In party mode, each party
-member must have a different sign. A new save starts with Bureaucracy
+affect only the character born under them, so every boon and curse is
+written as "this character…" and touches only that character's rolls,
+actions or health; nothing a sign does may change the dungeon, the shop
+or another hero. This keeps each sign working the same in solo and party
+mode. In party mode, each party member must have a different sign. A new save starts with Bureaucracy
 only, so every new adventurer begins as a pen-pusher.
 
 | Sign | Boon *(proposed)* | Curse *(proposed)* |
 | --- | --- | --- |
-| Chaos | Reroll one die per dungeon | Random events are more frequent |
+| Chaos | Reroll one of this character's dice once per dungeon | Once per fight, one of this character's actions is replaced by a random one |
 | Discord | Bonus damage while wounded | Cannot parley with guardians |
-| Confusion | An extra hidden option in puzzles | Some options are mislabelled |
-| Bureaucracy | Traps are signposted; shops are cheaper | Must take rooms in a fixed order |
+| Confusion | An extra hidden option in puzzles when this character attempts them | This character's attacks strike a random enemy |
+| Bureaucracy | Signposted: +2 on this character's checks against traps, and trap options are labelled for them | Due process: this character acts last in the first round of every fight |
 | The Aftermath | Gains glitz when near death | Starts each dungeon wounded |
 
 ### Ability scores
@@ -526,6 +529,7 @@ playable solo run as early as possible, then content, then party mode.
 | 2026-10-29 | City is Kallistopolis; five factions, one per depth |
 | 2026-10-29 | Arcanopunk tone, Discordian-inspired, no contemporary references |
 | 2026-10-29 | New saves start with a human fighter born under Bureaucracy |
+| 2026-10-29 | Sign effects are personal to the character born under them; Bureaucracy, Chaos and Confusion reworked to match |
 | 2026-10-29 | gdUnit4 for testing; GitHub Actions on every push; Conventional Commits |
 | 2026-10-29 | Five random streams from one seed: characters, dungeon, encounters, combat, loot |
 | 2026-10-29 | Compatibility renderer; placeholder art deferred until slice 4 |

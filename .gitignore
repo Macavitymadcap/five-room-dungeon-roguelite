@@ -6,3 +6,6 @@
 
 # gdUnit4 test reports
 reports/
+
+# Local vscode settings
+.vscode/
