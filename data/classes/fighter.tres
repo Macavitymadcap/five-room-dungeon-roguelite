@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CharacterClass" format=3 uid="uid://ctmp5kknnfc46"]
+
+[ext_resource type="Script" uid="uid://nm7gnckeimbr" path="res://core/character/character_class.gd" id="1_4sk37"]
+
+[resource]
+script = ExtResource("1_4sk37")
+class_resource = "Momentum"
+id = &"figther"
+display_name = "Fighter"
+description = "A blade for hire with a guild licence, a dented breastplate and the conviction that most problems are shaped like an opponent."
