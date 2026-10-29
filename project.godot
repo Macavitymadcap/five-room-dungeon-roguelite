@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Five Roo Dungeon Roguelite"
+config/name="Five Room Dungeon Roguelite"
 run/main_scene="uid://i7xkcb8vmjyg"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
