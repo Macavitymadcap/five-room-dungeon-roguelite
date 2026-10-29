@@ -27,6 +27,7 @@ size_flags_horizontal = 3
 
 [node name="MapLabel" type="Label" parent="HBoxContainer/MapPanel" unique_id=1204548568]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Map"
 horizontal_alignment = 1
