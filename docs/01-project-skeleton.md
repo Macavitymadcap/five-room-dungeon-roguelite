@@ -143,16 +143,16 @@ res://
 
 ### Definition of done
 
-- [ ] The project opens in Godot 4.7.x with no errors or warnings.
-- [ ] Running the project shows the placeholder map and content panels.
-- [ ] All tests pass in the editor's gdUnit4 panel.
-- [ ] All tests pass in GitHub Actions on push.
-- [ ] Two `RngStreams` built from the same seed produce identical
+- [x] The project opens in Godot 4.7.x with no errors or warnings.
+- [x] Running the project shows the placeholder map and content panels.
+- [x] All tests pass in the editor's gdUnit4 panel.
+- [x] All tests pass in GitHub Actions on push.
+- [x] Two `RngStreams` built from the same seed produce identical
       sequences; drawing from one stream does not change another.
-- [ ] `Dice` only ever returns 1 to 5 for a d5, and every face occurs.
-- [ ] `AbilityScores.modifier_for` matches the table in the design
+- [x] `Dice` only ever returns 1 to 5 for a d5, and every face occurs.
+- [x] `AbilityScores.modifier_for` matches the table in the design
       overview, and rolled scores fall between 3 and 15.
-- [ ] Commits follow Conventional Commits.
+- [x] Commits follow Conventional Commits.
 
 ## Walkthrough
 
