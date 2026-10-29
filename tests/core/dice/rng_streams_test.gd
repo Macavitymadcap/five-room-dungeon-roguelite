@@ -50,3 +50,19 @@ func _draw(streams: RngStreams, stream: RngStreams.Stream, count: int) -> Array[
 	for _i: int in range(count):
 		draws.append(rng.randi())
 	return draws
+
+
+func test_existing_streams_keep_their_sequences() -> void:
+	# Arrange
+	# Recorded on main before the NARRATIVE stream was added. If this fails,
+	# a stream was inserted or reordered, and every old seed has changed.
+	var expected: Array[int] = [3688321001, 1710136774, 3747700061, 1600984951, 4202888916]
+	var streams := RngStreams.new(SEED)
+
+	# Act
+	var actual: Array[int] = []
+	for stream: int in range(expected.size()):
+		actual.append(streams.get_stream(stream as RngStreams.Stream).randi())
+
+	# Assert
+	assert_array(actual).is_equal(expected)

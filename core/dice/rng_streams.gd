@@ -7,7 +7,7 @@ extends RefCounted
 ## streams must only be added to the end of the enum, never inserted,
 ## or every existing seed will produce different runs.
 
-enum Stream { CHARACTERS, DUNGEON, ENCOUNTERS, COMBAT, LOOT }
+enum Stream { CHARACTERS, DUNGEON, ENCOUNTERS, COMBAT, LOOT, NARRATIVE }
 
 var run_seed: int
 var _streams: Array[RandomNumberGenerator] = []
