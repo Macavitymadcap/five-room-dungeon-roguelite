@@ -1,6 +1,6 @@
 # Slice 1: Project Skeleton
 
-Part of the Five Room Roguelite build plan. Version 1.0, October 2026.
+Part of the Five Room Dungeon Roguelite build plan. Version 1.0, October 2026.
 
 This slice sets up the Godot project, the test framework and continuous
 integration, and builds the first tested core code: seeded random
@@ -125,8 +125,8 @@ res://
 │       └── rng_streams.gd
 ├── data/
 ├── docs/
-│   ├── design-overview.md
-│   └── slice-01-project-skeleton.md
+│   ├── 00-overview.md
+│   └── 01-project-skeleton.md
 ├── narrative/
 ├── tests/
 │   └── core/
@@ -166,7 +166,7 @@ res://
 ### Step 2: Create the repository and project
 
 1. Create an empty GitHub repository, for example
-   `five-room-roguelite`, and clone it.
+   `five-room-dungeon-roguelite`, and clone it.
 2. Open Godot. In the Project Manager, choose **Create**.
 3. Set the project path to your cloned folder, and choose the
    **Compatibility** renderer.
@@ -203,7 +203,7 @@ Open **Project → Project Settings**.
 
 | Setting | Value |
 | --- | --- |
-| Application → Config → Name | Five Room Roguelite |
+| Application → Config → Name | Five Room Dungeon Roguelite |
 | Display → Window → Size → Viewport Width | 1280 |
 | Display → Window → Size → Viewport Height | 720 |
 | Display → Window → Stretch → Mode | `canvas_items` |
@@ -220,7 +220,7 @@ Project Settings window, then go to **Debug → GDScript**.
 | Unsafe Property Access | Warn | Flags dynamic property lookups |
 | Unsafe Method Access | Warn | Flags calls the editor cannot check |
 | Unsafe Cast | Warn | Flags casts that may fail at runtime |
-| Exclude Addons | On | Stops plugins from tripping your stricter rules |
+| Directory Rules | Leave the default: `res://addons` set to Exclude | Stops plugins from tripping your stricter rules; this replaced the older Exclude Addons tick box |
 
 #### Editor settings
 

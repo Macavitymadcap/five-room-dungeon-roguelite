@@ -1,6 +1,6 @@
-# Five Room Roguelite: Game Design Overview
+# Five Room Dungeon Roguelite: Game Design Overview
 
-Working title. Version 0.3, October 2026.
+Version 0.3, October 2026.
 
 This is the overview document. Each implementation slice listed under
 [Build plan](#build-plan) gets its own document when work on it starts;
