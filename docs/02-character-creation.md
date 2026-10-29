@@ -175,16 +175,16 @@ res://
 
 ### Definition of done
 
-- [ ] The slice 1 tidy-ups are committed.
-- [ ] The project opens with no errors or warnings.
-- [ ] Running the project shows the creation screen with the human
+- [x] The slice 1 tidy-ups are committed.
+- [x] The project opens with no errors or warnings.
+- [x] Running the project shows the creation screen with the human
       fighter born under Bureaucracy, rolled scores and their modifiers.
-- [ ] Rerolling costs 1 glitz and stops at 2 glitz.
-- [ ] Begin stays disabled until the human bonus is placed.
-- [ ] Pressing Begin hides the creation screen and shows the hero's
+- [x] Rerolling costs 1 glitz and stops at 2 glitz.
+- [x] Begin stays disabled until the human bonus is placed.
+- [x] Pressing Begin hides the creation screen and shows the hero's
       summary in the map panel.
-- [ ] All tests pass in the editor and in GitHub Actions.
-- [ ] The work is merged into `main` through a pull request and tagged
+- [x] All tests pass in the editor and in GitHub Actions.
+- [x] The work is merged into `main` through a pull request and tagged
       `slice-02`.
 
 ## Walkthrough
@@ -1103,6 +1103,7 @@ CreationScreen (VBoxContainer)
 | ClassLabel | Text | Class |
 | SignLabel | Text | Born under |
 | DetailsLabel | Autowrap Mode | Word (Smart) |
+| DetailsLabel | Layout → Custom Minimum Size → x | 240 |
 | BeginButton | Text | Begin the delve |
 
 4. For each node marked "unique name", right-click it in the Scene dock
@@ -1228,7 +1229,10 @@ Commit: `feat(ui): add character creation screen`.
 
 1. Open `ui/main/main.tscn`.
 2. Rename the label under `MapPanel` to `MapLabel`, set its
-   **Autowrap Mode** to **Word (Smart)**, and make it a unique name.
+   **Autowrap Mode** to **Word (Smart)** and its
+   **Layout → Custom Minimum Size → x** to 200, and make it a unique
+   name. A wrapping label needs a minimum width, or Godot warns that it
+   cannot work out how tall the wrapped text will be.
 3. Delete the label under `ContentPanel`.
 4. Right-click `ContentPanel`, choose **Instantiate Child Scene**, and
    pick `ui/creation/creation_screen.tscn`. Make the new
