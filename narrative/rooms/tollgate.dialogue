@@ -1,0 +1,103 @@
+~ start
+
+The viaduct narrows to a single span of riveted iron, humming with the lightning rail beneath it. Across the span stands a gate of brass bars, each one stamped with the imperial seal\: a crown balanced, improbably, on an apple.
+Before the gate waits the Herald, a clockwork functionary twice your height. Its chest is a ledger and its face is a speaking-trumpet.
+Herald: HALT. By decree of His Imperial Majesty, all persons crossing the Fifth Span must pay the toll.
+Herald: The toll is one imperial scrip. Imperial scrip is issued by His Majesty on the occasion of his birthday, which is never.
+if has_species("human")
+	Herald: Species: human. Category: tolerated. Proceed to the paying of the toll.
+% A spark crawls along the gate bars and fizzles out with an apologetic pop.
+% Somewhere below, a rail carriage screams past, and the whole span shivers.
+% A pigeon lands on the gate. The Herald fines it for loitering.
+=> choice
+
+~ choice
+
+Herald: State your business, {{hero.character_class.display_name}}. You have {{hero.health}} units of health remaining, for the purposes of the form.
+- Smash the Herald's speaking-trumpet [#check=hits.hard] [if not flagged("smash") /]
+	$> flag("smash")
+	if passed
+		You drive your fist into the trumpet. It folds like a cheap hat, and the Herald's voice becomes a mournful kazoo.
+		Herald: Hnnnrrk. Gate. Open.
+		=> through
+	else
+		The trumpet is sturdier than it looks. The Herald's reply, at very close range, is a blast of sound that lifts you off your feet.
+		$> hurt(4)
+		=> choice
+- Dash between the Herald's legs [#check=blitz.moderate, #trap] [if not flagged("dash") /]
+	$> flag("dash")
+	if passed
+		Halfway through, you notice the pressure plate, and you leap it like a hurdle. You land on the far side of the gate before the Herald has finished turning its head.
+		=> through
+	else
+		Halfway through, your boot finds a pressure plate. The gate bars discharge into you with a noise like a sneeze.
+		$> hurt(5)
+		=> choice
+- Forge an imperial scrip [#check=wits.moderate] [if not flagged("forge") /]
+	$> flag("forge")
+	if passed
+		You produce a scrip from an old rail ticket and some confident handwriting. The Herald studies it, stamps it twice and files it in its chest.
+		Herald: Payment accepted. Happy birthday, Majesty.
+		=> through
+	else
+		The Herald holds your forgery up to the light.
+		Herald: The Emperor's name does not have three Z's. Your attempt has been filed under "Treason, Minor".
+		=> choice
+- Show your guild licence (Fighter) [if has_class("fighter") and not flagged("licence") /]
+	$> flag("licence")
+	Herald: A guild licence is not legal tender. However, I am obliged to inform licensed persons that this gate is maintained from a spark coil in my left knee.
+	Herald: That information was obligatory. I regret it.
+	=> choice
+- Short the spark coil in the Herald's knee [#check=whizz.moderate] [if flagged("licence") and not flagged("coil") /]
+	$> flag("coil")
+	if passed
+		You find the coil exactly where the Herald said. A flick of power, a smell of hot brass, and the Herald sits down very suddenly.
+		=> through
+	else
+		The coil bites back. Your arm is numb to the shoulder.
+		$> hurt(3)
+		=> choice
+- Request form 27B, Toll Exemption (Bureaucracy) [#check=wits.easy] [if has_sign("bureaucracy") and not flagged("form") /]
+	$> flag("form")
+	if passed
+		Herald: Form 27B. Correctly completed. In triplicate.
+		Herald: I have waited so long for someone to ask.
+		=> through
+	else
+		You fill in the form in the wrong colour of ink. The Herald shreds it with visible grief.
+		=> choice
+- Flatter the Herald [#check=rizz.easy] [if not flagged("flatter") /]
+	$> flag("flatter")
+	if passed
+		Herald: Nobody has ever complimented my ledger before. I can waive the toll if you sign the waiver.
+		=> waiver
+	else
+		Herald: Flattery of an imperial officer is an offence. I am, however, flattered. I will let it go.
+		=> choice
+- Wait for the Herald's spring to run down [if flagged("smash") and flagged("dash") and flagged("forge") and flagged("flatter") /]
+	You sit on the parapet and wait. Hours pass. At sundown the Herald winds down mid-sentence, and the gate swings open in the evening breeze.
+	A passing rail carriage clips you on your way through.
+	$> hurt(2)
+	=> through
+
+~ waiver
+
+The Herald extends a form, a quill and an expectant silence.
+- Sign the waiver
+	Herald: Signed and sealed. Your soul is now the property of the Imperial Treasury, which will not be collecting it this year.
+	=> through
+- Read the small print first [if hero.scores.wits >= 10 /]
+	The small print, in a hand the size of a flea, transfers your soul to the Imperial Treasury. You strike out the clause and initial it.
+	Herald: Amended and accepted. You are the first person to read that in eleven years.
+	=> through
+
+~ through
+
+The gate grinds open. Beyond it, the Fifth Span carries on into the Emperor's district: towers of bunting, lightning-lamps and a great many more forms.
+Scratched into the inside of the gate, at knee height, is a crude drawing of an apple with five bites taken out of it.
+=> END
+
+~ death
+
+You fall on the riveted iron of the Fifth Span. The Herald consults its ledger, finds no column for this, and files you under "Miscellaneous".
+=> END

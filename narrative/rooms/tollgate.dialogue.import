@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://dukihmvc185op"
+path="res://.godot/imported/tollgate.dialogue-516d5df86011e20de9748c793e79671f.tres"
+
+[deps]
+
+source_file="res://narrative/rooms/tollgate.dialogue"
+dest_files=["res://.godot/imported/tollgate.dialogue-516d5df86011e20de9748c793e79671f.tres"]
+
+[params]
+
+defaults=true
