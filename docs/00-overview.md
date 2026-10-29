@@ -1,6 +1,6 @@
 # Five Room Dungeon Roguelite: Game Design Overview
 
-Version 0.4, October 2026.
+Version 0.5, October 2026.
 
 This is the overview document. Each implementation slice listed under
 [Build plan](#build-plan) gets its own document when work on it starts;
@@ -26,8 +26,11 @@ is pure unlocks: new options and new content, never more power.
 
 ## Design pillars
 
-1. **Everything comes in fives.** When a list needs a length, it is
-   five. Hidden 23s (2 + 3 = 5) are scattered as easter eggs.
+1. **Everything comes in fives.** When a player-facing list needs a
+   length, it is five. Hidden 23s (2 + 3 = 5) are scattered as easter
+   eggs. The rule is for what the player sees; behind-the-scenes
+   mechanics, such as the number of random streams, are sized by what
+   they need.
 2. **Every build reads the dungeon differently.** Room choices are
    gated by stats, class, species and sign, so the same template plays
    differently with a different character.
@@ -255,6 +258,30 @@ favours different builds; the engine does not enforce them.
 | 4. Climax | The boss fight | Combat |
 | 5. Reward and Revelation | Loot, plus a hook that seeds the next dungeon | Rizz |
 
+### Room templates in reserve
+
+Premises discussed but not yet written, for later templates:
+
+| Premise | Suits |
+| --- | --- |
+| The Mint Cellar: a bronze automaton guards a vault of counterfeit imperial coin | Entrance and Guardian, or Climax |
+| The Hall of Petitioners: an endless queue for an audience, and a bored halberdier deciding who is next | Puzzle or Roleplay |
+
+### Room narrative
+
+Rooms are written as Dialogue Manager files and shown as a scrolling,
+gamebook-style log in the content panel; passages without choices
+appear at once, and the log clears when a new room starts.
+
+- A choice that needs a check is tagged with its ability and
+  difficulty, such as `[#check=wits.moderate]`, and the choice shows
+  both: "Forge an imperial scrip (Wits, Moderate)".
+- Choices that lead into traps are also tagged `#trap`. Traps are
+  hidden unless the hero's sign reveals them, as Bureaucracy's does.
+- The dice of every check are printed in the log, such as "Wits check:
+  3 + 4 + 1 = 8 against 8, success".
+- If the hero's health reaches 0, the room jumps to its `death` cue.
+
 ### Layouts
 
 Five rooms can be connected in 21 distinct topologies, and placing the
@@ -437,7 +464,7 @@ rather than harder.
 | Language | GDScript |
 | Stats and entities | Godot `Resource` files |
 | Room narrative | The Dialogue Manager plugin |
-| Randomness | One seeded generator per run |
+| Randomness | One run seed, split into a separate random stream per system |
 | Art | Free sprites first; custom animated sprites as a stretch goal |
 | Layout | Dungeon map alongside a main panel that switches between narrative and combat views |
 
@@ -532,6 +559,10 @@ playable solo run as early as possible, then content, then party mode.
 | 2026-10-29 | Sign effects are personal to the character born under them; Bureaucracy, Chaos and Confusion reworked to match |
 | 2026-10-29 | gdUnit4 for testing; GitHub Actions on every push; Conventional Commits |
 | 2026-10-29 | Five random streams from one seed: characters, dungeon, encounters, combat, loot |
+| 2026-10-29 | The Law of Fives applies to player-facing mechanics only; a sixth NARRATIVE stream added for room checks |
+| 2026-10-29 | Dialogue Manager v4.1 for room narrative; checks tagged on choices with ability and difficulty shown |
+| 2026-10-29 | Rooms shown as a gamebook-style log; check dice printed; health 0 jumps to a death cue |
+| 2026-10-29 | Glitz tests deferred to slice 4 |
 | 2026-10-29 | Compatibility renderer; placeholder art deferred until slice 4 |
 
 ## Open questions
@@ -548,7 +579,5 @@ playable solo run as early as possible, then content, then party mode.
 
 ## Next steps
 
-1. Write the slice 1 document: project skeleton, folder layout, seeded
-   RNG and d5 dice, and the test framework.
-2. Work through open questions 2 to 4 before starting slice 4, since
-   combat depends on them.
+1. Work through open questions 1 to 4 before starting slice 4, since
+   combat and glitz tests depend on them.
