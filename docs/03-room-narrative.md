@@ -148,6 +148,16 @@ classDiagram
         +flag(name)
         +flagged(name) bool
     }
+    class Hero {
+        +AbilityScores scores
+        +BirthSign birth_sign
+        +int health
+        +int max_health
+        +take_damage(amount)
+        +heal(amount)
+        +is_dead() bool
+        +summary() String
+    }
     class RoomView {
         +finished signal
         +start(resource, state)
@@ -156,6 +166,7 @@ classDiagram
     Check ..> CheckResult : creates
     RoomState ..> Check : rolls
     RoomState --> Hero
+    CheckSpec ..> Hero : labels traps for
     RoomView ..> CheckSpec : reads tags
     RoomView --> RoomState
 ```
