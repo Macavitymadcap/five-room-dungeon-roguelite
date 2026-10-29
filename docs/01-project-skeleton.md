@@ -373,7 +373,7 @@ warning.
 
 #### Running the tests
 
-Right-click `tests/` in the FileSystem dock and choose **Run Tests**.
+Right-click `tests/` in the FileSystem dock and choose **Run Testsuites**.
 The GdUnit panel shows the results; all three tests should pass. To see
 a test fail, temporarily change `SEED + 1` to `SEED` in the second test.
 
@@ -671,6 +671,11 @@ narrative and combat panel on the right.
 Press **F5** to run the project. You should see the two labelled
 panels, resizing with the window.
 
+By default the game runs embedded in the editor's **Game** tab. If the
+scene shrinks with the tab but does not grow past 1280×720, set the Game
+tab's embedding size option to **Stretch** rather than **Fixed Size** or
+**Keep Aspect Ratio**.
+
 Commit: `feat(ui): add placeholder main layout`.
 
 ### Step 10: Continuous integration
@@ -684,11 +689,15 @@ on:
   push:
   pull_request:
 
+permissions:
+  contents: read
+  checks: write
+
 jobs:
   gdunit4:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - uses: MikeSchulze/gdUnit4-action@v1
         with:
@@ -698,7 +707,10 @@ jobs:
 
 Set `godot-version` to the exact version you installed in step 1. The
 action downloads that Godot build, runs every test under `res://tests`
-headless and publishes a report on the workflow run. Check the action's
+headless and publishes a report on the workflow run. Publishing the
+report creates a GitHub check run, which needs the `checks: write`
+permission; without it the tests pass but the job fails with
+"Resource not accessible by integration". Check the action's
 README if an input has changed since this was written.
 
 Commit: `ci: run gdUnit4 tests on push`, push, and open the **Actions**
