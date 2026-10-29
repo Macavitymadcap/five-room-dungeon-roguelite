@@ -442,8 +442,8 @@ These texts are placeholders in the game's tone; rewrite them as you like.
 | Id | `bureaucracy` |
 | Display Name | Bureaucracy |
 | Description | Born in the fourth season, when the Grey Bureau files the world in triplicate. |
-| Boon Text | Traps are signposted, and shops honour the correct paperwork with a discount. |
-| Curse Text | Rooms must be taken in the order they appear on the form. |
+| Boon Text | Signposted: you get +2 on checks against traps, and trap options are labelled for you. |
+| Curse Text | Due process: you act last in the first round of every fight, while your paperwork is processed. |
 
 The `id` is what code and save files will refer to, so it should never
 change once content ships; the display name can change freely.
