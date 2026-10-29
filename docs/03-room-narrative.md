@@ -940,7 +940,7 @@ Code. Paste in the draft:
 ```text
 ~ start
 
-The viaduct narrows to a single span of riveted iron, humming with the lightning rail beneath it. Across the span stands a gate of brass bars, each one stamped with the imperial seal: a crown balanced, improbably, on an apple.
+The viaduct narrows to a single span of riveted iron, humming with the lightning rail beneath it. Across the span stands a gate of brass bars, each one stamped with the imperial seal\: a crown balanced, improbably, on an apple.
 Before the gate waits the Herald, a clockwork functionary twice your height. Its chest is a ledger and its face is a speaking-trumpet.
 Herald: HALT. By decree of His Imperial Majesty, all persons crossing the Fifth Span must pay the toll.
 Herald: The toll is one imperial scrip. Imperial scrip is issued by His Majesty on the occasion of his birthday, which is never.
@@ -1033,7 +1033,7 @@ The Herald extends a form, a quill and an expectant silence.
 
 ~ through
 
-The gate grinds open. Beyond it, the Fifth Span carries on into the Emperor's district: towers of bunting, lightning-lamps and a great many more forms.
+The gate grinds open. Beyond it, the Fifth Span carries on into the Emperor's district\: towers of bunting, lightning-lamps and a great many more forms.
 Scratched into the inside of the gate, at knee height, is a crude drawing of an apple with five bites taken out of it.
 => END
 
