@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_4sk37")
 class_resource = "Momentum"
-id = &"figther"
+id = &"fighter"
 display_name = "Fighter"
 description = "A blade for hire with a guild licence, a dented breastplate and the conviction that most problems are shaped like an opponent."
