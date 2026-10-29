@@ -6,6 +6,8 @@
 script = ExtResource("1_f458u")
 boon_text = "Signposted: you get +2 on checks against traps, and trap options are labelled for you."
 curse_text = "Due process: you act last in the first round of every fight, while your paperwork is processed."
+trap_check_bonus = 2
+labels_traps = true
 id = &"bureaucracy"
 display_name = "Bureaucracy"
 description = "Born in the fourth season, when the Grey Bureau files the world in triplicate."
