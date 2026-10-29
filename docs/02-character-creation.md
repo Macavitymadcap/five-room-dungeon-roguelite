@@ -1218,6 +1218,10 @@ node's children exist. `setup` connects to the builder's `changed`
 signal only after the first choices are made and the dice rolled, so the
 screen never tries to draw a half-built hero.
 
+Switch back to the scene and press **Ctrl+S** to save it again.
+Attaching a script changes the scene, and an unsaved attachment means
+the main scene instances a plain `VBoxContainer` without the script.
+
 Commit: `feat(ui): add character creation screen`.
 
 ### Step 11: Show it in the main scene
@@ -1292,6 +1296,7 @@ git push --tags
 | `Node not found: "%SpeciesOption"` | That node is not marked **Access as Unique Name** |
 | `Cannot call method 'refresh' on a null value` | The `ScoreTable` node has no script attached |
 | Nothing happens on Begin | The bonus has not been placed, so the button is disabled |
+| `Trying to assign value of type 'VBoxContainer' to a variable of type 'creation_screen.gd'` | The creation screen scene was not saved after attaching its script, or the script is on a different node |
 | The score table is empty | `score_table.gd` is attached to a node other than the `GridContainer` |
 
 Tests can also be run from a terminal, which is useful when the editor
