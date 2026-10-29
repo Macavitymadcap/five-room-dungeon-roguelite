@@ -1,0 +1,8 @@
+# Godot cache and imports
+.godot/
+
+# Android export templates
+/android/
+
+# gdUnit4 test reports
+reports/
