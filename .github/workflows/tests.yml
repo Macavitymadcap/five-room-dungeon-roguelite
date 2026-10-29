@@ -1,0 +1,16 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  gdunit4:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: MikeSchulze/gdUnit4-action@v1
+        with:
+          godot-version: '4.7.2'
+          paths: 'res://tests'
