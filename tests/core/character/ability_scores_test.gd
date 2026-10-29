@@ -3,7 +3,7 @@ extends GdUnitTestSuite
 
 const SEED := 23
 
-
+@warning_ignore("unused_parameter")
 func test_modifier_for(score: int, expected: int, test_parameters := [
 		[3, -3], [4, -3], [5, -2], [8, -1], [9, 0],
 		[10, 0], [11, 1], [14, 2], [15, 3]]) -> void:
