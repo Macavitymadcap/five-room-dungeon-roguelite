@@ -61,3 +61,39 @@ func test_same_seed_rolls_same_scores() -> void:
 func _make_dice(seed_value: int) -> Dice:
 	var streams := RngStreams.new(seed_value)
 	return Dice.new(streams.get_stream(RngStreams.Stream.CHARACTERS))
+
+func test_set_score_changes_only_that_ability() -> void:
+	# Arrange
+	var scores := AbilityScores.new()
+
+	# Act
+	scores.set_score(AbilityScores.Ability.WHIZZ, 14)
+
+	# Assert
+	assert_int(scores.whizz).is_equal(14)
+	assert_int(scores.wits).is_equal(AbilityScores.AVERAGE_SCORE)
+
+
+func test_copy_is_independent_of_the_original() -> void:
+	# Arrange
+	var original := AbilityScores.new()
+	original.rizz = 12
+
+	# Act
+	var copied := original.copy()
+	copied.rizz = 4
+
+	# Assert
+	assert_int(original.rizz).is_equal(12)
+	assert_int(copied.rizz).is_equal(4)
+
+
+func test_display_name_is_capitalised() -> void:
+	# Arrange
+	var ability := AbilityScores.Ability.WHIZZ
+
+	# Act
+	var actual := AbilityScores.display_name(ability)
+
+	# Assert
+	assert_str(actual).is_equal("Whizz")
