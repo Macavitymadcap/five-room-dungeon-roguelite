@@ -60,3 +60,27 @@ func _make_hero(scores: AbilityScores) -> Hero:
 	var birth_sign := BirthSign.new()
 	birth_sign.display_name = "Bureaucracy"
 	return Hero.create(species, character_class, birth_sign, scores, 8)
+
+
+func test_take_damage_stops_at_zero() -> void:
+	# Arrange
+	var hero := _make_hero(AbilityScores.new())
+
+	# Act
+	hero.take_damage(100)
+
+	# Assert
+	assert_int(hero.health).is_equal(0)
+	assert_bool(hero.is_dead()).is_true()
+
+
+func test_heal_stops_at_maximum() -> void:
+	# Arrange
+	var hero := _make_hero(AbilityScores.new())
+	hero.take_damage(5)
+
+	# Act
+	hero.heal(100)
+
+	# Assert
+	assert_int(hero.health).is_equal(hero.max_health)

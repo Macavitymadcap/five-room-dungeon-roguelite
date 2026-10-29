@@ -43,6 +43,20 @@ static func defence_for(hero_scores: AbilityScores) -> int:
 	return BASE_DEFENCE + hero_scores.modifier(AbilityScores.Ability.BLITZ)
 
 
+## Loses health, never going below zero.
+func take_damage(amount: int) -> void:
+	health = maxi(health - amount, 0)
+
+
+## Regains health, never going above the maximum.
+func heal(amount: int) -> void:
+	health = mini(health + amount, max_health)
+
+
+func is_dead() -> bool:
+	return health <= 0
+
+
 ## The number enemies must equal or beat to hit this hero.
 func defence() -> int:
 	return defence_for(scores)
@@ -50,6 +64,6 @@ func defence() -> int:
 
 ## A one-line description and the key numbers, for display.
 func summary() -> String:
-	return "%s %s, born under %s\nHealth %d   Defence %d   Glitz %d" % [
+	return "%s %s, born under %s\nHealth %d/%d   Defence %d   Glitz %d" % [
 		species.display_name, character_class.display_name,
-		birth_sign.display_name, max_health, defence(), glitz]
+		birth_sign.display_name, health, max_health, defence(), glitz]
